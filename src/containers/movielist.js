@@ -5,6 +5,7 @@
 import React,{ Component, PropTypes } from 'react';
 import {connect} from 'react-redux';
 import {fetchMovies} from '../actions/index';
+import Movie from '../components/movie'
 
 class MovieList extends Component{
   constructor(props){
@@ -17,17 +18,12 @@ class MovieList extends Component{
       return <div></div>
     }
      var movies = this.props.movies[0].map(function(movie){
-                     return <li key={movie.id}>{movie.title}</li>;
+                     return <Movie movie={movie} />;
                    })
     console.log(this.props.movies[0])
      return  <ul>{ movies }</ul>
   }
 }
-
-// MovieList.propTypes = {
-//   dispatch: PropTypes.func.isRequired,
-//   movies: PropTypes.array.isRequired
-// };
 
 function mapStateToProps(state){
   //state.movies is assigned to movies key in reducers index
