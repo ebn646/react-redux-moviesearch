@@ -5,7 +5,7 @@
 import React,{ Component, PropTypes } from 'react';
 import {connect} from 'react-redux';
 import {fetchMovies} from '../actions/index';
-import Movie from '../components/movie'
+import MovieItem from '../components/movieListItem'
 
 class MovieList extends Component{
   constructor(props){
@@ -18,8 +18,8 @@ class MovieList extends Component{
       return <div></div>
     }
      var movies = this.props.movies[0].map(function(movie){
-                     return <Movie movie={movie} />;
-                   })
+                     return <MovieItem movie={movie} />;
+                  })
     console.log(this.props.movies[0])
      return  <ul>{ movies }</ul>
   }

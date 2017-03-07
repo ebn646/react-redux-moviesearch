@@ -1,13 +1,13 @@
 //1.container needs to be able to call an action creator
-//2.we must bind fetchWeather as a property to this containers//3.
-//3.hookup fetchWeather to searchbar mapDispatchToProps
-//4.by combiniing action creator fetchWeather to dispatch and mapping it to props
-//gives us access to this.props.fetchWeather inside of our components
+//2.we must bind fetchSearchResults as a property to this containers//3.
+//3.hookup fetchSearchResults to searchbar mapDispatchToProps
+//4.by combiniing action creator fetchSearchResults to dispatch and mapping it to props
+//gives us access to this.props.fetchSearchResults inside of our components
 
 import React,{ Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchMovies } from '../actions/index';
+import { fetchSearchResults } from '../actions/index';
 
 class SearchBar extends Component{
   constructor(props){
@@ -29,7 +29,8 @@ class SearchBar extends Component{
 
     //we need to fetch movie data
     //call actiion creator every time user submits a form
-    this.props.fetchMovies(this.state.term);
+    
+    this.props.fetchSearchResults(this.state.term);
     this.setState({ term:'' })
   }
 
@@ -51,7 +52,7 @@ class SearchBar extends Component{
 
 function mapDispatchToProps(dispatch){
   //fetchWeather calls action creator and dispatch makes sure it flows through reducers
-  return bindActionCreators({fetchMovies}, dispatch)
+  return bindActionCreators({fetchSearchResults}, dispatch)
 }
 //pass null in connect because we dont care about state here and mapDispatchToProps is always sent in as second argument
 export default connect(null,mapDispatchToProps)(SearchBar);
