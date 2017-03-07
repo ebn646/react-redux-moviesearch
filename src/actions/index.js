@@ -20,7 +20,7 @@ export function fetchSearchResults(movie){
 //2.return action
 export function fetchMovie(id){
   //const request = axios.get(`${ROOT_URL}/movie/${id}`);
-  const request = axios.get('https://api.themoviedb.org/3/movie/364?api_key=1cec0394fa447a1f03d7a744faf9cbc9&language=en-US');
+  const request = axios.get('https://api.themoviedb.org/3/movie/'+id+'?api_key=1cec0394fa447a1f03d7a744faf9cbc9&language=en-US');
   return{
     type: FETCH_MOVIE,
     payload: request
